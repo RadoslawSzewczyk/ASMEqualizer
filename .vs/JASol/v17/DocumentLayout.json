@@ -1,0 +1,119 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Bartek\\Desktop\\JA projekt\\JASol\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{50C74CB3-F532-47B2-BD98-BE1874611420}|JADll\\JADll.vcxproj|C:\\Users\\Bartek\\Desktop\\JA projekt\\JASol\\JADll\\EchoAlg.asm||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{50C74CB3-F532-47B2-BD98-BE1874611420}|JADll\\JADll.vcxproj|solutionrelative:JADll\\EchoAlg.asm||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B19037F9-9CD9-4056-ADE1-60B98E868160}|JADll_C\\JADll_C.vcxproj|C:\\Users\\Bartek\\Desktop\\JA projekt\\JASol\\JADll_C\\EchoAlg.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B19037F9-9CD9-4056-ADE1-60B98E868160}|JADll_C\\JADll_C.vcxproj|solutionrelative:JADll_C\\EchoAlg.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CEE47462-195A-45D7-B5CB-BAB86615A35A}|Echo\\Echo.vcxproj|C:\\Users\\Bartek\\Desktop\\JA projekt\\JASol\\Echo\\Echo.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CEE47462-195A-45D7-B5CB-BAB86615A35A}|Echo\\Echo.vcxproj|solutionrelative:Echo\\Echo.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B19037F9-9CD9-4056-ADE1-60B98E868160}|JADll_C\\JADll_C.vcxproj|C:\\Users\\Bartek\\Desktop\\JA projekt\\JASol\\JADll_C\\EchoAlg_C.def||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{B19037F9-9CD9-4056-ADE1-60B98E868160}|JADll_C\\JADll_C.vcxproj|solutionrelative:JADll_C\\EchoAlg_C.def||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C74CB3-F532-47B2-BD98-BE1874611420}|JADll\\JADll.vcxproj|C:\\Users\\Bartek\\Desktop\\JA projekt\\JASol\\JADll\\EchoAlg.def||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{50C74CB3-F532-47B2-BD98-BE1874611420}|JADll\\JADll.vcxproj|solutionrelative:JADll\\EchoAlg.def||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EchoAlg.asm",
+              "DocumentMoniker": "C:\\Users\\Bartek\\Desktop\\JA projekt\\JASol\\JADll\\EchoAlg.asm",
+              "RelativeDocumentMoniker": "JADll\\EchoAlg.asm",
+              "ToolTip": "C:\\Users\\Bartek\\Desktop\\JA projekt\\JASol\\JADll\\EchoAlg.asm",
+              "RelativeToolTip": "JADll\\EchoAlg.asm",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-10-18T19:57:36.293Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EchoAlg.cpp",
+              "DocumentMoniker": "C:\\Users\\Bartek\\Desktop\\JA projekt\\JASol\\JADll_C\\EchoAlg.cpp",
+              "RelativeDocumentMoniker": "JADll_C\\EchoAlg.cpp",
+              "ToolTip": "C:\\Users\\Bartek\\Desktop\\JA projekt\\JASol\\JADll_C\\EchoAlg.cpp",
+              "RelativeToolTip": "JADll_C\\EchoAlg.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-18T19:52:48.223Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EchoAlg.def",
+              "DocumentMoniker": "C:\\Users\\Bartek\\Desktop\\JA projekt\\JASol\\JADll\\EchoAlg.def",
+              "RelativeDocumentMoniker": "JADll\\EchoAlg.def",
+              "ToolTip": "C:\\Users\\Bartek\\Desktop\\JA projekt\\JASol\\JADll\\EchoAlg.def",
+              "RelativeToolTip": "JADll\\EchoAlg.def",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001913|",
+              "WhenOpened": "2024-10-18T19:48:09.568Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EchoAlg_C.def",
+              "DocumentMoniker": "C:\\Users\\Bartek\\Desktop\\JA projekt\\JASol\\JADll_C\\EchoAlg_C.def",
+              "RelativeDocumentMoniker": "JADll_C\\EchoAlg_C.def",
+              "ToolTip": "C:\\Users\\Bartek\\Desktop\\JA projekt\\JASol\\JADll_C\\EchoAlg_C.def",
+              "RelativeToolTip": "JADll_C\\EchoAlg_C.def",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001913|",
+              "WhenOpened": "2024-10-18T19:49:43.318Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Echo.cpp",
+              "DocumentMoniker": "C:\\Users\\Bartek\\Desktop\\JA projekt\\JASol\\Echo\\Echo.cpp",
+              "RelativeDocumentMoniker": "Echo\\Echo.cpp",
+              "ToolTip": "C:\\Users\\Bartek\\Desktop\\JA projekt\\JASol\\Echo\\Echo.cpp",
+              "RelativeToolTip": "Echo\\Echo.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-18T19:35:54.502Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d3750d8a-574b-4fb3-b7e2-aa8af40e8231}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
