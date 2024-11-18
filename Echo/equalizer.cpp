@@ -1,18 +1,19 @@
-﻿//
-#include "C:\Users\radek\Desktop\JA projekt\JASol\SFML-2.6.1\include\SFML\Graphics.hpp"
+﻿#include <iostream>
+
+extern "C" void _fastcall MyProc1(int* buffer, long long length, int gain);
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML Test Window");
-    while (window.isOpen()) {
-        sf::Event event;
-        while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
+    int audioBuffer[] = { 1000, 2000, 3000, 4000, 5000 };
+    long long length = sizeof(audioBuffer) / sizeof(audioBuffer[0]);
+    int gain = 2;
 
-        window.clear();
-        window.display();
+    MyProc1(audioBuffer, length, gain);
+
+    for (int i = 0; i < length; i++) {
+        std::cout << audioBuffer[i] << " ";
     }
+    std::cout << std::endl;
 
     return 0;
 }
+
