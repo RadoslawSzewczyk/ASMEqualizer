@@ -1,6 +1,1 @@
-﻿  pch.cpp
-  dllmain.cpp
-  EqualizerAlg.cpp
-  Generating Code...
-     Creating library C:\Users\radek\Desktop\JA projekt\JASol\x64\Debug\JADll_C.lib and object C:\Users\radek\Desktop\JA projekt\JASol\x64\Debug\JADll_C.exp
-  JADll_C.vcxproj -> C:\Users\radek\Desktop\JA projekt\JASol\x64\Debug\JADll_C.dll
+﻿  JADll_C.vcxproj -> C:\Users\radek\Documents\repo\ASMEqualizer\x64\Debug\JADll_C.dll
