@@ -1,12 +1,11 @@
-;-------------------------------------------------------------------------
-;.586                                
+;.586
 ;INCLUDE C:\masm32\include\windows.inc
 
-;-------------------------------------------------------------------------
+;------------------------------------------------------------------------
 ; This assembly procedure processes a buffer of audio samples and applies a gain factor
 ; to each sample. The samples are stored as an array of 32-bit integers.
 ; Version 0.1
-; 
+
 ; Input Parameters:
 ; RCX - pointer to the input buffer (array of 32-bit integers)
 ; RDX - buffer length (number of elements in the array)
@@ -24,11 +23,10 @@ ProcessLoop:
 
     ; Load the current 32-bit sample from the buffer
     mov eax, [rcx + rbx*4]        ; Load the 32-bit integer sample at position [rcx + rbx*4] into eax
-                                   ; (rcx + rbx*4) calculates the memory address offset based on index (rbx)
-    ; Ensure gain factor is correctly used as 32-bit
-    mov r8d, r8d                  ; Use the lower 32-bit version of R8 (r8d) to match size with eax
-    ; Apply gain
+
+    ; Apply the gain (multiplication)
     imul eax, r8d                 ; Multiply the loaded sample (eax) by the gain factor (r8d)
+    
     ; Store the modified sample back in the buffer
     mov [rcx + rbx*4], eax        ; Store the result of the multiplication back to the buffer at the same location
 
@@ -42,5 +40,3 @@ EndLoop:
 MyProc1 endp                      ; End of procedure definition
 
 END                               ; Marks the end of the source file
-
-;-------------------------------------------------------------------------

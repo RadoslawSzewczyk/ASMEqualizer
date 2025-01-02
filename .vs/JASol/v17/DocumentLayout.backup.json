@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\radek\\Documents\\repo\\ASMEqualizer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{50C74CB3-F532-47B2-BD98-BE1874611420}|JADll\\JADll.vcxproj|C:\\Users\\radek\\Documents\\repo\\ASMEqualizer\\JADll\\EqualizerAlg.asm||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{50C74CB3-F532-47B2-BD98-BE1874611420}|JADll\\JADll.vcxproj|solutionrelative:JADll\\EqualizerAlg.asm||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CEE47462-195A-45D7-B5CB-BAB86615A35A}|Echo\\Echo.vcxproj|C:\\Users\\radek\\Documents\\repo\\ASMEqualizer\\Echo\\equalizer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{CEE47462-195A-45D7-B5CB-BAB86615A35A}|Echo\\Echo.vcxproj|solutionrelative:Echo\\equalizer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{B19037F9-9CD9-4056-ADE1-60B98E868160}|JADll_C\\JADll_C.vcxproj|C:\\Users\\radek\\Documents\\repo\\ASMEqualizer\\JADll_C\\EqualizerAlg.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B19037F9-9CD9-4056-ADE1-60B98E868160}|JADll_C\\JADll_C.vcxproj|solutionrelative:JADll_C\\EqualizerAlg.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B19037F9-9CD9-4056-ADE1-60B98E868160}|JADll_C\\JADll_C.vcxproj|C:\\Users\\radek\\Documents\\repo\\ASMEqualizer\\JADll_C\\pch.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B19037F9-9CD9-4056-ADE1-60B98E868160}|JADll_C\\JADll_C.vcxproj|solutionrelative:JADll_C\\pch.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{50C74CB3-F532-47B2-BD98-BE1874611420}|JADll\\JADll.vcxproj|C:\\Users\\radek\\Documents\\repo\\ASMEqualizer\\JADll\\EqualizerAlg.def||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{50C74CB3-F532-47B2-BD98-BE1874611420}|JADll\\JADll.vcxproj|solutionrelative:JADll\\EqualizerAlg.def||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C74CB3-F532-47B2-BD98-BE1874611420}|JADll\\JADll.vcxproj|C:\\Users\\radek\\Documents\\repo\\ASMEqualizer\\JADll\\EqualizerAlg.asm||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{50C74CB3-F532-47B2-BD98-BE1874611420}|JADll\\JADll.vcxproj|solutionrelative:JADll\\EqualizerAlg.asm||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,20 +38,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "EqualizerAlg.cpp",
+              "DocumentMoniker": "C:\\Users\\radek\\Documents\\repo\\ASMEqualizer\\JADll_C\\EqualizerAlg.cpp",
+              "RelativeDocumentMoniker": "JADll_C\\EqualizerAlg.cpp",
+              "ToolTip": "C:\\Users\\radek\\Documents\\repo\\ASMEqualizer\\JADll_C\\EqualizerAlg.cpp",
+              "RelativeToolTip": "JADll_C\\EqualizerAlg.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-02T20:24:31.847Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "pch.cpp",
+              "DocumentMoniker": "C:\\Users\\radek\\Documents\\repo\\ASMEqualizer\\JADll_C\\pch.cpp",
+              "RelativeDocumentMoniker": "JADll_C\\pch.cpp",
+              "ToolTip": "C:\\Users\\radek\\Documents\\repo\\ASMEqualizer\\JADll_C\\pch.cpp",
+              "RelativeToolTip": "JADll_C\\pch.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-02T20:24:21.56Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "EqualizerAlg.asm",
               "DocumentMoniker": "C:\\Users\\radek\\Documents\\repo\\ASMEqualizer\\JADll\\EqualizerAlg.asm",
               "RelativeDocumentMoniker": "JADll\\EqualizerAlg.asm",
               "ToolTip": "C:\\Users\\radek\\Documents\\repo\\ASMEqualizer\\JADll\\EqualizerAlg.asm",
               "RelativeToolTip": "JADll\\EqualizerAlg.asm",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAcwBgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2024-11-18T12:57:35.42Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "EqualizerAlg.def",
               "DocumentMoniker": "C:\\Users\\radek\\Documents\\repo\\ASMEqualizer\\JADll\\EqualizerAlg.def",
               "RelativeDocumentMoniker": "JADll\\EqualizerAlg.def",
@@ -56,13 +90,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "equalizer.cpp",
               "DocumentMoniker": "C:\\Users\\radek\\Documents\\repo\\ASMEqualizer\\Echo\\equalizer.cpp",
               "RelativeDocumentMoniker": "Echo\\equalizer.cpp",
               "ToolTip": "C:\\Users\\radek\\Documents\\repo\\ASMEqualizer\\Echo\\equalizer.cpp",
               "RelativeToolTip": "Echo\\equalizer.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-18T12:49:16.626Z",
               "EditorCaption": ""
