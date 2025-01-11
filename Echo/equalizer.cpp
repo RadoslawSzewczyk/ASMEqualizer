@@ -2,21 +2,15 @@
 #include <iostream>
 #include <vector>
 #include <thread>
+#include <Windows.h>
 
-// External assembly function declaration
-extern "C" void _fastcall MyProc1(int* buffer, long long length, int gain);
-extern "C" void _fastcall MyProc2(int buffer, int gain);
+// Declare the DLL function you want to use
+extern "C" __declspec(dllimport) void MyProc1(int* buffer, long long length, int lowGain, int midGain, int highGain);
+extern "C" __declspec(dllimport) void MyProc2(int* buffer, long long length, int lowGain, int midGain, int highGain);
 
-// Function to process a chunk of audio data
-void processChunk(int* buffer, long long length, int gain) {
-    MyProc1(buffer, length, gain);
-}
-
-int main()
-{
-    MyProc2(1, 2);
+int main() {
     const char* inputFilePath = "C:\\Users\\radek\\Downloads\\sample.wav";
-    const char* outputFilePath = "C:\\Users\\radek\\Downloads\\output_sample.wav";
+    const char* outputFilePath = "C:\\Users\\radek\\Downloads\\output_sample_equalized.wav";
 
     // Open the audio file using libsndfile
     SF_INFO sfInfo;
@@ -48,29 +42,14 @@ int main()
     // Convert audioBuffer from 16-bit (int16_t) to 32-bit (int) values
     std::vector<int> audioBuffer32(audioBuffer.begin(), audioBuffer.end());
 
-    // Process the audio data in chunks using threads
+    // Apply different gain factors for low, mid, and high frequencies
     long long bufferLength = audioBuffer32.size();
-    int gain = 2;
+    int lowGain = 10;
+    int midGain = 1;
+    int highGain = 1;
 
-    unsigned int numThreads = std::thread::hardware_concurrency();
-    if (numThreads == 0) numThreads = 1;
-
-    long long chunkSize = bufferLength / numThreads;
-    long long remaining = bufferLength % numThreads;
-
-    std::vector<std::thread> threads;
-
-    long long offset = 0;
-    for (unsigned int i = 0; i < numThreads; ++i) {
-        long long currentChunkSize = chunkSize + (i < remaining ? 1 : 0);
-        threads.emplace_back(processChunk, &audioBuffer32[offset], currentChunkSize, gain);
-        offset += currentChunkSize;
-    }
-
-    // Join all threads
-    for (auto& thread : threads) {
-        thread.join();
-    }
+    // Process the audio data using the DLL function
+    MyProc1(audioBuffer32.data(), bufferLength, lowGain, midGain, highGain);
 
     // Convert the processed audio buffer back to 16-bit values for saving
     std::vector<int16_t> processedAudioBuffer(audioBuffer32.size());
