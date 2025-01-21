@@ -29,7 +29,8 @@ extern "C" __declspec(dllexport) void MyProc2(int* buffer, long long length, int
     float highXPrev = 0.0f;
 
     // Process the audio sample by sample
-    for (long long i = 0; i < length; ++i) {
+    for (long long i = 0; i < length; ++i)
+    {
         // Low-pass filter
         lowYPrev = (lowAlpha * buffer[i] + (1 - lowAlpha) * lowYPrev);
         lowPassBuffer[i] = static_cast<int>(lowYPrev);
