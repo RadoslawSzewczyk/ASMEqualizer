@@ -1,0 +1,18 @@
+﻿  pch.cpp
+  dllmain.cpp
+  EqualizerAlg.cpp
+C:\Users\radek\Documents\repo\ASMEqualizer\JADll_C\EqualizerAlg.cpp(22,20): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file '/EqualizerAlg.cpp')
+  
+C:\Users\radek\Documents\repo\ASMEqualizer\JADll_C\EqualizerAlg.cpp(23,21): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file '/EqualizerAlg.cpp')
+  
+C:\Users\radek\Documents\repo\ASMEqualizer\JADll_C\EqualizerAlg.cpp(41,29): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  (compiling source file '/EqualizerAlg.cpp')
+  
+     Creating library C:\Users\radek\Documents\repo\ASMEqualizer\x64\Release\JADll_C.lib and object C:\Users\radek\Documents\repo\ASMEqualizer\x64\Release\JADll_C.exp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 62 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  JADll_C.vcxproj -> C:\Users\radek\Documents\repo\ASMEqualizer\x64\Release\JADll_C.dll

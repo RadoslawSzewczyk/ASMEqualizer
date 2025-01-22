@@ -18,11 +18,13 @@ typedef void (*MyProcFunc)(int* buffer, long long length, int lowGain, int midGa
 std::mutex mtx;
 
 // Function to process a segment of the buffer
-void processBufferSegment(MyProcFunc procFunc, int* buffer, long long start, long long end, int lowGain, int midGain, int highGain) {
+void processBufferSegment(MyProcFunc procFunc, int* buffer, long long start, long long end, int lowGain, int midGain, int highGain)
+{
     procFunc(buffer + start, end - start, lowGain, midGain, highGain);
 }
 
-int main() {
+int main()
+{
     sf::RenderWindow window(sf::VideoMode(600, 400), "Audio Processor");
 
     // Variables for file selection, processing function, and multithreading
@@ -33,7 +35,6 @@ int main() {
 
     bool fileSelected = false;
     bool processingComplete = false;
-
     // Load font and check if it's loaded successfully
 
     sf::Font font;
@@ -59,7 +60,8 @@ int main() {
     while (window.isOpen())
     {
         sf::Event event;
-        while (window.pollEvent(event)) {
+        while (window.pollEvent(event))
+        {
             if (event.type == sf::Event::Closed)
                 window.close();
         }

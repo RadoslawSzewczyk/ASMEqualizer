@@ -75,6 +75,10 @@
     <IncludePath>$(SolutionDir)\libsndfile-1.2.2-win64\include;$(SolutionDir)\SFML-2.6.1\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)\libsndfile-1.2.2-win64\lib;$(SolutionDir)\SFML-2.6.1\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(SolutionDir)\libsndfile-1.2.2-win64\include;$(SolutionDir)\SFML-2.6.1\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\SFML-2.6.1\lib;$(SolutionDir)\libsndfile-1.2.2-win64\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -131,14 +135,15 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\libsndfile-master\include;C:\portaudio\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>..\x64\Debug\JADll.lib;..\x64\Debug\JADll_C.lib;sndfile.lib;portaudio_x64.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\libsndfile-master\build\Debug;C:\portaudio\build\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\x64\Release\JADll.lib;..\x64\Release\JADll_C.lib;..\x64\Release\sfml-graphics.lib;..\x64\Release\sfml-window.lib;..\x64\Release\sfml-system.lib;..\..\libsndfile-1.2.2-win64\lib\sndfile.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\libsndfile-master\build\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ModuleDefinitionFile>
       </ModuleDefinitionFile>
     </Link>
