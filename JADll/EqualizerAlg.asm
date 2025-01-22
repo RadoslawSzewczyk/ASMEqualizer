@@ -21,7 +21,8 @@ MyProc1 PROC
     mov  r11, rdx                ; r11 = length
     movd xmm0, r8d               ; xmm0 = lowGain
     movd xmm1, r9d               ; xmm1 = midGain
-    movd xmm2, dword ptr [rbp+40h] ; xmm2 = highGain
+    mov  eax, 100                ; Hard-code highGain to 100
+    movd xmm2, eax               ; xmm2 = highGain
 
     cvtdq2ps xmm0, xmm0          ; Convert lowGain to float
     cvtdq2ps xmm1, xmm1          ; Convert midGain to float
