@@ -1,109 +1,138 @@
-;.586
-.DATA
-ALIGN 16
-M_PI REAL4 3.14159265358979323846
-INT_MIN DWORD -2147483648, -2147483648, -2147483648, -2147483648 ; 16-byte aligned
-INT_MAX DWORD 2147483647, 2147483647, 2147483647, 2147483647     ; 16-byte aligned
+;.386
+;.model flat, stdcall
+;.stack 4096
 
-lowCutoff REAL4 200.0
-highCutoff REAL4 3000.0
-sampleRate REAL4 44100.0
+.data
+    M_PI        REAL8  3.14159265358979323846
+    lowCutoff   REAL4  200.0
+    highCutoff  REAL4  3000.0
+    sampleRate  REAL4  44100.0
 
-.CODE
+.code
 MyProc1 PROC
     ; Prologue
-    push rbp
-    mov  rbp, rsp
-    sub  rsp, 64                 ; Allocate stack space for local variables
+    push    rbp
+    mov     rbp, rsp
+    sub     rsp, 512                   ; Reserve stack space for temporary storage
 
-    ; Load parameters
-    mov  r10, rcx                ; r10 = buffer
-    mov  r11, rdx                ; r11 = length
-    movd xmm0, r8d               ; xmm0 = lowGain
-    movd xmm1, r9d               ; xmm1 = midGain
-    mov  eax, 100                ; Hard-code highGain to 100
-    movd xmm2, eax               ; xmm2 = highGain
+    ; Save non-volatile registers
+    push    rbx
+    push    rsi
+    push    rdi
+    push    r12
+    push    r13
+    push    r14
+    push    r15
 
-    cvtdq2ps xmm0, xmm0          ; Convert lowGain to float
-    cvtdq2ps xmm1, xmm1          ; Convert midGain to float
-    cvtdq2ps xmm2, xmm2          ; Convert highGain to float
+    ; Load arguments
+    mov     r12, rcx                  ; r12 = buffer (pointer)
+    mov     r13, rdx                  ; r13 = length
+    mov     r14d, r8d                 ; r14 = lowGain
+    mov     r15d, r9d                 ; r15 = midGain
+    mov     r10d, r10d                ; r10 = highGain
 
-    ; Compute coefficients
-    movss xmm3, dword ptr [lowCutoff]
-    mulss xmm3, dword ptr [M_PI]
-    divss xmm3, dword ptr [sampleRate]
-    shufps xmm3, xmm3, 0         ; Broadcast lowAlpha
+    ; Compute lowAlpha and highAlpha
+    vmovss  xmm0, DWORD PTR [lowCutoff]    ; xmm0 = lowCutoff
+    vmulss  xmm0, xmm0, DWORD PTR [M_PI]  ; xmm0 = lowCutoff * M_PI
+    vdivss  xmm0, xmm0, DWORD PTR [sampleRate] ; xmm0 = lowAlpha
+    vmovss  DWORD PTR [rbp-16], xmm0      ; Store lowAlpha in stack
 
-    movss xmm4, dword ptr [highCutoff]
-    mulss xmm4, dword ptr [M_PI]
-    divss xmm4, dword ptr [sampleRate]
-    shufps xmm4, xmm4, 0         ; Broadcast highAlpha
+    vmovss  xmm1, DWORD PTR [highCutoff]  ; xmm1 = highCutoff
+    vmulss  xmm1, xmm1, DWORD PTR [M_PI]  ; xmm1 = highCutoff * M_PI
+    vdivss  xmm1, xmm1, DWORD PTR [sampleRate] ; xmm1 = highAlpha
+    vmovss  DWORD PTR [rbp-20], xmm1      ; Store highAlpha in stack
 
-    ; Precompute 1 - coefficients
-    movaps xmm5, xmmword ptr [M_PI]
-    subps xmm5, xmm3             ; xmm5 = 1 - lowAlpha
-    movaps xmm6, xmmword ptr [M_PI]
-    subps xmm6, xmm4             ; xmm6 = 1 - highAlpha
-
-    ; Zero out filter state variables
-    xorps xmm7, xmm7             ; xmm7 = lowYPrev
-    xorps xmm8, xmm8             ; xmm8 = highYPrev
+    ; Initialize filter states to zero
+    vxorps  xmm2, xmm2, xmm2              ; xmm2 = lowYPrev = 0.0
+    vxorps  xmm3, xmm3, xmm3              ; xmm3 = lowXPrev = 0.0
+    vxorps  xmm4, xmm4, xmm4              ; xmm4 = highYPrev = 0.0
+    vxorps  xmm5, xmm5, xmm5              ; xmm5 = highXPrev = 0.0
 
     ; Main processing loop
-process_loop:
-    cmp  r11, 4                  ; Check if we have at least 4 samples
-    jl   remainder_loop          ; Jump to remainder loop if less than 4
+    xor     rdi, rdi                      ; rdi = loop counter
+LoopStart:
+    cmp     rdi, r13                      ; Compare counter with length
+    jge     LoopEnd                       ; Exit loop if counter >= length
 
-    movups xmm9, xmmword ptr [r10]
-    cvtdq2ps xmm9, xmm9          ; Convert to float
+    ; Load current sample
+    mov     eax, DWORD PTR [r12 + rdi*4]  ; eax = buffer[rdi]
+    cvtsi2ss xmm6, eax                    ; xmm6 = (float)buffer[rdi]
 
     ; Low-pass filter
-    mulps xmm7, xmm5             ; (1 - lowAlpha) * lowYPrev
-    mulps xmm9, xmm3             ; lowAlpha * buffer[i]
-    addps xmm7, xmm9             ; Update lowYPrev
+    vmovss  xmm7, DWORD PTR [rbp-16]      ; xmm7 = lowAlpha
+    vmulss  xmm7, xmm7, xmm6              ; xmm7 = lowAlpha * buffer[rdi]
+    vsubss  xmm8, xmm2, xmm7              ; xmm8 = (1 - lowAlpha) * lowYPrev
+    vaddss  xmm2, xmm7, xmm8              ; lowYPrev = lowAlpha * input + (1 - lowAlpha) * lowYPrev
+    cvtss2si eax, xmm2                    ; Convert lowYPrev to integer
+
+    ; Calculate offset for lowPassBuffer
+    lea     rbx, [rdi + rdi*2]            ; rbx = rdi * 3
+    shl     rbx, 2                        ; rbx = rdi * 12
+
+    ; Store in lowPassBuffer
+    mov     DWORD PTR [rsp + rbx], eax    ; Store in lowPassBuffer
 
     ; High-pass filter
-    subps xmm9, xmm7             ; buffer[i] - lowYPrev
-    mulps xmm8, xmm6             ; (1 - highAlpha) * highYPrev
-    mulps xmm9, xmm4             ; highAlpha * (buffer[i] - lowYPrev)
-    addps xmm8, xmm9             ; Update highYPrev
+    vmovss  xmm7, DWORD PTR [rbp-20]      ; xmm7 = highAlpha
+    vmulss  xmm7, xmm7, xmm6              ; xmm7 = highAlpha * buffer[rdi]
+    vsubss  xmm8, xmm4, xmm7              ; xmm8 = highAlpha * (highYPrev + input - highXPrev)
+    vaddss  xmm4, xmm7, xmm8              ; highYPrev = highAlpha * input + highAlpha * (highYPrev + input - highXPrev)
+    cvtss2si eax, xmm4                    ; Convert highYPrev to integer
+
+    ; Ensure offset does not exceed stack bounds
+    cmp     rbx, 508                      ; Compare offset with stack size
+    jge     LoopEnd                       ; Exit loop if offset exceeds bounds
+
+    ; Store in highPassBuffer
+    mov     DWORD PTR [rsp + rbx + 4], eax
 
     ; Band-pass filter
-    movaps xmm10, xmmword ptr [r10]
-    cvtdq2ps xmm10, xmm10        ; Convert to float
-    subps xmm10, xmm7            ; Subtract low-pass
-    subps xmm10, xmm8            ; Subtract high-pass
+    mov     eax, DWORD PTR [r12 + rdi*4]  ; Load original sample
+    sub     eax, DWORD PTR [rsp + rbx]    ; Subtract low-pass sample
+    sub     eax, DWORD PTR [rsp + rbx + 4] ; Subtract high-pass sample
+    mov     DWORD PTR [rsp + rbx + 8], eax ; Store in bandPassBuffer
 
-    ; Apply gains
-    mulps xmm7, xmm0             ; Apply low gain
-    mulps xmm8, xmm1             ; Apply mid gain
-    mulps xmm10, xmm2            ; Apply high gain
+    ; Apply gains and clip
+    mov     eax, DWORD PTR [rsp + rbx]    ; Load low-pass sample
+    imul    eax, r14d                     ; Multiply by lowGain
 
-    ; Combine results
-    addps xmm7, xmm8
-    addps xmm7, xmm10
+    mov     ebx, DWORD PTR [rsp + rbx + 8]; Load band-pass sample
+    imul    ebx, r15d                     ; Multiply by midGain
+    add     eax, ebx                      ; Combine with low-pass
 
-    ; Clip to int range
-    movups xmm11, xmmword ptr [INT_MIN]
-    movups xmm12, xmmword ptr [INT_MAX]
-    maxps xmm7, xmm11
-    minps xmm7, xmm12
+    mov     ebx, DWORD PTR [rsp + rbx + 4]; Load high-pass sample
+    imul    ebx, r10d                     ; Multiply by highGain
+    add     eax, ebx                      ; Combine with band-pass
 
-    ; Store back
-    cvtps2dq xmm7, xmm7
-    movups xmmword ptr [r10], xmm7
+    ; Clip to 32-bit integer range
+    cmp     eax, 7FFFFFFFh                ; Compare with INT_MAX
+    jle     NoClipHigh                    ; If <= INT_MAX, skip clipping
+    mov     eax, 7FFFFFFFh                ; Set to INT_MAX
+NoClipHigh:
+    cmp     eax, 80000000h                ; Compare with INT_MIN
+    jge     NoClipLow                     ; If >= INT_MIN, skip clipping
+    mov     eax, 80000000h                ; Set to INT_MIN
+NoClipLow:
 
-    ; Advance buffer pointer
-    add  r10, 16
-    sub  r11, 4
-    jmp  process_loop
+    ; Store result back to buffer
+    mov     DWORD PTR [r12 + rdi*4], eax  ; buffer[rdi] = result
 
-remainder_loop:
-    ; Scalar processing for remaining samples (not shown)
+    ; Increment loop counter
+    inc     rdi
+    jmp     LoopStart                     ; Repeat loop
 
-done:
-    mov  rsp, rbp
-    pop  rbp
+LoopEnd:
+    ; Epilogue
+    pop     r15
+    pop     r14
+    pop     r13
+    pop     r12
+    pop     rdi
+    pop     rsi
+    pop     rbx
+    mov     rsp, rbp
+    pop     rbp
     ret
+
 MyProc1 ENDP
 END
