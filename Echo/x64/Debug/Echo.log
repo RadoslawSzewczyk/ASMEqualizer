@@ -1,2 +1,255 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (Echo.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  equalizer.cpp
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(218,79): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(218,79): warning C4244:         with
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(218,79): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(218,79): warning C4244:             T=int
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(218,79): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(218,79): warning C4244:         and
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(218,79): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(218,79): warning C4244:             T=float
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(218,79): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(218,67): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(218,67): warning C4244:         with
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(218,67): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(218,67): warning C4244:             T=int
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(218,67): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(218,67): warning C4244:         and
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(218,67): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(218,67): warning C4244:             T=float
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(218,67): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(229,80): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(229,80): warning C4244:         with
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(229,80): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(229,80): warning C4244:             T=int
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(229,80): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(229,80): warning C4244:         and
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(229,80): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(229,80): warning C4244:             T=float
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(229,80): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(229,68): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(229,68): warning C4244:         with
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(229,68): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(229,68): warning C4244:             T=int
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(229,68): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(229,68): warning C4244:         and
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(229,68): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(229,68): warning C4244:             T=float
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(229,68): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(232,80): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(232,80): warning C4244:         with
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(232,80): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(232,80): warning C4244:             T=int
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(232,80): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(232,80): warning C4244:         and
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(232,80): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(232,80): warning C4244:             T=float
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(232,80): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(232,68): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(232,68): warning C4244:         with
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(232,68): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(232,68): warning C4244:             T=int
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(232,68): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(232,68): warning C4244:         and
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(232,68): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(232,68): warning C4244:             T=float
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(232,68): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(236,79): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(236,79): warning C4244:         with
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(236,79): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(236,79): warning C4244:             T=int
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(236,79): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(236,79): warning C4244:         and
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(236,79): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(236,79): warning C4244:             T=float
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(236,79): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(236,67): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(236,67): warning C4244:         with
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(236,67): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(236,67): warning C4244:             T=int
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(236,67): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(236,67): warning C4244:         and
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(236,67): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(236,67): warning C4244:             T=float
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(236,67): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(238,80): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(238,80): warning C4244:         with
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(238,80): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(238,80): warning C4244:             T=int
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(238,80): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(238,80): warning C4244:         and
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(238,80): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(238,80): warning C4244:             T=float
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(238,80): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(238,68): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(238,68): warning C4244:         with
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(238,68): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(238,68): warning C4244:             T=int
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(238,68): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(238,68): warning C4244:         and
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(238,68): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(238,68): warning C4244:             T=float
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(238,68): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(243,80): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(243,80): warning C4244:         with
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(243,80): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(243,80): warning C4244:             T=int
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(243,80): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(243,80): warning C4244:         and
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(243,80): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(243,80): warning C4244:             T=float
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(243,80): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(243,68): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(243,68): warning C4244:         with
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(243,68): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(243,68): warning C4244:             T=int
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(243,68): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(243,68): warning C4244:         and
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(243,68): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(243,68): warning C4244:             T=float
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(243,68): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(245,81): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(245,81): warning C4244:         with
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(245,81): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(245,81): warning C4244:             T=int
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(245,81): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(245,81): warning C4244:         and
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(245,81): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(245,81): warning C4244:             T=float
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(245,81): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(245,69): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(245,69): warning C4244:         with
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(245,69): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(245,69): warning C4244:             T=int
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(245,69): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(245,69): warning C4244:         and
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(245,69): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(245,69): warning C4244:             T=float
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(245,69): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(247,80): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(247,80): warning C4244:         with
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(247,80): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(247,80): warning C4244:             T=int
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(247,80): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(247,80): warning C4244:         and
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(247,80): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(247,80): warning C4244:             T=float
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(247,80): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(247,68): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(247,68): warning C4244:         with
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(247,68): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(247,68): warning C4244:             T=int
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(247,68): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(247,68): warning C4244:         and
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(247,68): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(247,68): warning C4244:             T=float
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(247,68): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(249,81): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(249,81): warning C4244:         with
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(249,81): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(249,81): warning C4244:             T=int
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(249,81): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(249,81): warning C4244:         and
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(249,81): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(249,81): warning C4244:             T=float
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(249,81): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(249,69): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(249,69): warning C4244:         with
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(249,69): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(249,69): warning C4244:             T=int
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(249,69): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(249,69): warning C4244:         and
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(249,69): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(249,69): warning C4244:             T=float
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(249,69): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(251,81): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(251,81): warning C4244:         with
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(251,81): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(251,81): warning C4244:             T=int
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(251,81): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(251,81): warning C4244:         and
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(251,81): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(251,81): warning C4244:             T=float
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(251,81): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(251,69): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(251,69): warning C4244:         with
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(251,69): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(251,69): warning C4244:             T=int
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(251,69): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(251,69): warning C4244:         and
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(251,69): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(251,69): warning C4244:             T=float
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(251,69): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(253,82): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(253,82): warning C4244:         with
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(253,82): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(253,82): warning C4244:             T=int
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(253,82): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(253,82): warning C4244:         and
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(253,82): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(253,82): warning C4244:             T=float
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(253,82): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(253,70): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(253,70): warning C4244:         with
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(253,70): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(253,70): warning C4244:             T=int
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(253,70): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(253,70): warning C4244:         and
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(253,70): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(253,70): warning C4244:             T=float
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(253,70): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(260,80): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(260,80): warning C4244:         with
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(260,80): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(260,80): warning C4244:             T=int
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(260,80): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(260,80): warning C4244:         and
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(260,80): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(260,80): warning C4244:             T=float
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(260,80): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(260,68): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(260,68): warning C4244:         with
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(260,68): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(260,68): warning C4244:             T=int
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(260,68): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(260,68): warning C4244:         and
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(260,68): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(260,68): warning C4244:             T=float
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(260,68): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(267,80): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(267,80): warning C4244:         with
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(267,80): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(267,80): warning C4244:             T=int
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(267,80): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(267,80): warning C4244:         and
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(267,80): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(267,80): warning C4244:             T=float
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(267,80): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(267,68): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(267,68): warning C4244:         with
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(267,68): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(267,68): warning C4244:             T=int
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(267,68): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(267,68): warning C4244:         and
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(267,68): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(267,68): warning C4244:             T=float
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(267,68): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(274,80): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(274,80): warning C4244:         with
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(274,80): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(274,80): warning C4244:             T=int
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(274,80): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(274,80): warning C4244:         and
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(274,80): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(274,80): warning C4244:             T=float
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(274,80): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(274,68): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(274,68): warning C4244:         with
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(274,68): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(274,68): warning C4244:             T=int
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(274,68): warning C4244:         ]
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(274,68): warning C4244:         and
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(274,68): warning C4244:         [
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(274,68): warning C4244:             T=float
+C:\Users\radek\Documents\repo\ASMEqualizer\Echo\equalizer.cpp(274,68): warning C4244:         ]
   Echo.vcxproj -> C:\Users\radek\Documents\repo\ASMEqualizer\x64\Debug\Equalizer.exe

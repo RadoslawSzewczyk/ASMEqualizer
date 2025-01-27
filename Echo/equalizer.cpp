@@ -61,13 +61,14 @@ int main()
 
     // Variables for file selection, processing function, and multithreading
     std::string inputFilePath;
-    std::string outputFilePath = "output_sample_equalized.wav";
+    std::string outputFilePath = "";
     MyProcFunc selectedProc = nullptr;
-    int numThreads = 1;
+    //int numThreads = std::thread::hardware_concurrency();
+	int numThreads = 1;
 
-    int lowGain = 1;
-    int midGain = 1;
-    int highGain = 1;
+    int lowGain = 0;
+    int midGain = 100;
+    int highGain = 100;
 
     bool fileSelected = false;
 
@@ -259,12 +260,14 @@ int main()
                 if (proc1Button.getGlobalBounds().contains(mousePos.x, mousePos.y))
                 {
                     selectedProc = MyProc1;
+					outputFilePath = "output_asm.wav";
                     std::cout << "ASM selected for processing." << std::endl;
                 }
 
                 if (proc2Button.getGlobalBounds().contains(mousePos.x, mousePos.y))
                 {
                     selectedProc = MyProc2;
+					outputFilePath = "output_cpp.wav";
                     std::cout << "C++ selected for processing." << std::endl;
                 }
 

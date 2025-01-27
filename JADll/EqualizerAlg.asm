@@ -1,21 +1,37 @@
-;.386
-;.model flat, stdcall
-;.stack 4096
-
 .data
-    M_PI        REAL8  3.14159265358979323846
-    lowCutoff   REAL4  200.0
-    highCutoff  REAL4  3000.0
-    sampleRate  REAL4  44100.0
+ALIGN 16
+sampleRate REAL8 44100.0
+lowCutoff REAL8 200.0
+highCutoff REAL8 5000.0
+pi REAL8 3.14159
+hundred REAL8 100.0
+upperLimit REAL8 2147483647.0
+lowerLimit REAL8 -2147483648.0
+one REAL8 1.0
+zero REAL8 0.0
+
+; Precomputed constants (to be initialized in the prologue)
+lowAlpha REAL8 ?
+highAlpha REAL8 ?
+midLowAlpha REAL8 ?
+midHighAlpha REAL8 ?
+
+.data?
+ALIGN 16
+lowPrev1 REAL8 ?
+lowPrev2 REAL8 ?
+highPrev1 REAL8 ?
+highPrev2 REAL8 ?
+midLowPrev1 REAL8 ?
+midLowPrev2 REAL8 ?
+midHighPrev1 REAL8 ?
+midHighPrev2 REAL8 ?
+tempGains REAL8 3 dup(?)
 
 .code
 MyProc1 PROC
     ; Prologue
     push    rbp
-    mov     rbp, rsp
-    sub     rsp, 512                   ; Reserve stack space for temporary storage
-
-    ; Save non-volatile registers
     push    rbx
     push    rsi
     push    rdi
@@ -24,104 +40,99 @@ MyProc1 PROC
     push    r14
     push    r15
 
-    ; Load arguments
-    mov     r12, rcx                  ; r12 = buffer (pointer)
-    mov     r13, rdx                  ; r13 = length
-    mov     r14d, r8d                 ; r14 = lowGain
-    mov     r15d, r9d                 ; r15 = midGain
-    mov     r10d, r10d                ; r10 = highGain
 
-    ; Compute lowAlpha and highAlpha
-    vmovss  xmm0, DWORD PTR [lowCutoff]    ; xmm0 = lowCutoff
-    vmulss  xmm0, xmm0, DWORD PTR [M_PI]  ; xmm0 = lowCutoff * M_PI
-    vdivss  xmm0, xmm0, DWORD PTR [sampleRate] ; xmm0 = lowAlpha
-    vmovss  DWORD PTR [rbp-16], xmm0      ; Store lowAlpha in stack
+    ;--------------------
+    ; Retrieve parameters
+    ;--------------------
+    mov     rbp, rcx           ; rbp = buffer (1st argument in RCX)
+    mov     rdx, rdx           ; rdx = length (2nd argument in RDX)
+    mov     r8, r8             ; r8 = lowGain (3rd argument in R8)
+    mov     r9, r9             ; r9 = midGain (4th argument in R9)
+    mov     r10, qword ptr [rsp + 104]   ; Explicitly specify qword ptr for a 64-bit value
 
-    vmovss  xmm1, DWORD PTR [highCutoff]  ; xmm1 = highCutoff
-    vmulss  xmm1, xmm1, DWORD PTR [M_PI]  ; xmm1 = highCutoff * M_PI
-    vdivss  xmm1, xmm1, DWORD PTR [sampleRate] ; xmm1 = highAlpha
-    vmovss  DWORD PTR [rbp-20], xmm1      ; Store highAlpha in stack
+    ;--------------------
+    ; Set up variables
+    ;--------------------
+    cvtsi2sd xmm0, r8               ; Convert lowGain to double
+    divsd xmm0, hundred             ; Scale: lowGain / 100
+    movsd qword ptr [tempGains], xmm0
+
+    cvtsi2sd xmm0, r9               ; Convert midGain to double
+    divsd xmm0, hundred             ; Scale: midGain / 100
+    movsd qword ptr [tempGains + 8], xmm0
+
+    cvtsi2sd xmm0, r10              ; Convert highGain to double
+    divsd xmm0, hundred             ; Scale: highGain / 100
+    movsd qword ptr [tempGains + 16], xmm0
 
     ; Initialize filter states to zero
-    vxorps  xmm2, xmm2, xmm2              ; xmm2 = lowYPrev = 0.0
-    vxorps  xmm3, xmm3, xmm3              ; xmm3 = lowXPrev = 0.0
-    vxorps  xmm4, xmm4, xmm4              ; xmm4 = highYPrev = 0.0
-    vxorps  xmm5, xmm5, xmm5              ; xmm5 = highXPrev = 0.0
+    movsd xmm0, zero
+    movsd qword ptr [lowPrev1], xmm0
+    movsd qword ptr [lowPrev2], xmm0
+    movsd qword ptr [highPrev1], xmm0
+    movsd qword ptr [highPrev2], xmm0
+    movsd qword ptr [midLowPrev1], xmm0
+    movsd qword ptr [midLowPrev2], xmm0
+    movsd qword ptr [midHighPrev1], xmm0
+    movsd qword ptr [midHighPrev2], xmm0
 
-    ; Main processing loop
-    xor     rdi, rdi                      ; rdi = loop counter
-LoopStart:
-    cmp     rdi, r13                      ; Compare counter with length
-    jge     LoopEnd                       ; Exit loop if counter >= length
+    ; Precompute filter constants
+    movsd xmm0, qword ptr [lowCutoff]
+    mulsd xmm0, pi
+    addsd xmm0, xmm0
+    divsd xmm0, qword ptr [sampleRate]
+    movsd qword ptr [lowAlpha], xmm0
 
-    ; Load current sample
-    mov     eax, DWORD PTR [r12 + rdi*4]  ; eax = buffer[rdi]
-    cvtsi2ss xmm6, eax                    ; xmm6 = (float)buffer[rdi]
+    movsd xmm0, qword ptr [highCutoff]
+    divsd xmm0, qword ptr [sampleRate]
+    movsd qword ptr [highAlpha], xmm0
 
-    ; Low-pass filter
-    vmovss  xmm7, DWORD PTR [rbp-16]      ; xmm7 = lowAlpha
-    vmulss  xmm7, xmm7, xmm6              ; xmm7 = lowAlpha * buffer[rdi]
-    vsubss  xmm8, xmm2, xmm7              ; xmm8 = (1 - lowAlpha) * lowYPrev
-    vaddss  xmm2, xmm7, xmm8              ; lowYPrev = lowAlpha * input + (1 - lowAlpha) * lowYPrev
-    cvtss2si eax, xmm2                    ; Convert lowYPrev to integer
+    xor rbx, rbx                    ; Initialize index counter
 
-    ; Calculate offset for lowPassBuffer
-    lea     rbx, [rdi + rdi*2]            ; rbx = rdi * 3
-    shl     rbx, 2                        ; rbx = rdi * 12
+ProcessLoop:
+    cmp rbx, rdx                    ; Compare index with length
+    jge EndLoop                     ; Exit loop if index >= length
 
-    ; Store in lowPassBuffer
-    mov     DWORD PTR [rsp + rbx], eax    ; Store in lowPassBuffer
+    ; Process each sample (logic unchanged)
+    movsxd rax, dword ptr [rbp + rbx * 4]
+    cvtsi2sd xmm0, rax
 
-    ; High-pass filter
-    vmovss  xmm7, DWORD PTR [rbp-20]      ; xmm7 = highAlpha
-    vmulss  xmm7, xmm7, xmm6              ; xmm7 = highAlpha * buffer[rdi]
-    vsubss  xmm8, xmm4, xmm7              ; xmm8 = highAlpha * (highYPrev + input - highXPrev)
-    vaddss  xmm4, xmm7, xmm8              ; highYPrev = highAlpha * input + highAlpha * (highYPrev + input - highXPrev)
-    cvtss2si eax, xmm4                    ; Convert highYPrev to integer
+    ; Low-pass filter (unchanged)
+    movsd xmm1, qword ptr [lowAlpha]
+    mulsd xmm1, xmm0
+    movsd xmm2, one
+    subsd xmm2, qword ptr [lowAlpha]
+    mulsd xmm2, qword ptr [lowPrev1]
+    addsd xmm1, xmm2
+    movsd xmm3, qword ptr [lowPrev1]
+    movsd qword ptr [lowPrev2], xmm3
+    movsd qword ptr [lowPrev1], xmm1
+    mulsd xmm1, qword ptr [tempGains]
+    movsd qword ptr [rsp + 16], xmm1
 
-    ; Ensure offset does not exceed stack bounds
-    cmp     rbx, 508                      ; Compare offset with stack size
-    jge     LoopEnd                       ; Exit loop if offset exceeds bounds
+    ; High-pass filter (unchanged)
+    movsd xmm1, qword ptr [highAlpha]
+    movsd xmm2, qword ptr [highPrev1]
+    addsd xmm2, xmm0
+    subsd xmm2, qword ptr [highPrev2]
+    mulsd xmm1, xmm2
+    movsd xmm3, qword ptr [highPrev1]
+    movsd qword ptr [highPrev2], xmm3
+    movsd qword ptr [highPrev1], xmm1
+    mulsd xmm1, qword ptr [tempGains + 16]
+    movsd qword ptr [rsp + 24], xmm1
 
-    ; Store in highPassBuffer
-    mov     DWORD PTR [rsp + rbx + 4], eax
+    ; Combine bands
+    addsd xmm0, qword ptr [rsp + 16]
+    addsd xmm0, qword ptr [rsp + 24]
+    maxsd xmm0, lowerLimit
+    minsd xmm0, upperLimit
+    cvttsd2si rax, xmm0
+    mov dword ptr [rbp + rbx * 4], eax
+    inc rbx
+    jmp ProcessLoop
 
-    ; Band-pass filter
-    mov     eax, DWORD PTR [r12 + rdi*4]  ; Load original sample
-    sub     eax, DWORD PTR [rsp + rbx]    ; Subtract low-pass sample
-    sub     eax, DWORD PTR [rsp + rbx + 4] ; Subtract high-pass sample
-    mov     DWORD PTR [rsp + rbx + 8], eax ; Store in bandPassBuffer
-
-    ; Apply gains and clip
-    mov     eax, DWORD PTR [rsp + rbx]    ; Load low-pass sample
-    imul    eax, r14d                     ; Multiply by lowGain
-
-    mov     ebx, DWORD PTR [rsp + rbx + 8]; Load band-pass sample
-    imul    ebx, r15d                     ; Multiply by midGain
-    add     eax, ebx                      ; Combine with low-pass
-
-    mov     ebx, DWORD PTR [rsp + rbx + 4]; Load high-pass sample
-    imul    ebx, r10d                     ; Multiply by highGain
-    add     eax, ebx                      ; Combine with band-pass
-
-    ; Clip to 32-bit integer range
-    cmp     eax, 7FFFFFFFh                ; Compare with INT_MAX
-    jle     NoClipHigh                    ; If <= INT_MAX, skip clipping
-    mov     eax, 7FFFFFFFh                ; Set to INT_MAX
-NoClipHigh:
-    cmp     eax, 80000000h                ; Compare with INT_MIN
-    jge     NoClipLow                     ; If >= INT_MIN, skip clipping
-    mov     eax, 80000000h                ; Set to INT_MIN
-NoClipLow:
-
-    ; Store result back to buffer
-    mov     DWORD PTR [r12 + rdi*4], eax  ; buffer[rdi] = result
-
-    ; Increment loop counter
-    inc     rdi
-    jmp     LoopStart                     ; Repeat loop
-
-LoopEnd:
+EndLoop:
     ; Epilogue
     pop     r15
     pop     r14
@@ -130,9 +141,7 @@ LoopEnd:
     pop     rdi
     pop     rsi
     pop     rbx
-    mov     rsp, rbp
     pop     rbp
     ret
-
 MyProc1 ENDP
 END
