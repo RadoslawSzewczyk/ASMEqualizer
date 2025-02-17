@@ -8,6 +8,8 @@
 #include <Windows.h>
 #include <filesystem>
 #include <chrono>
+#include <iomanip>
+#include <sstream>
 
 // Declare the DLL functions
 extern "C" __declspec(dllimport) void MyProc1(int* buffer, long long length, int lowGain, int midGain, int highGain);
@@ -59,14 +61,12 @@ int main()
 {
     sf::RenderWindow window(sf::VideoMode(600, 700), "Audio Processor");
 
-    // Variables for file selection, processing function, and multithreading
     std::string inputFilePath;
     std::string outputFilePath = "";
     MyProcFunc selectedProc = nullptr;
-    //int numThreads = std::thread::hardware_concurrency();
-	int numThreads = 1;
+    int numThreads = std::thread::hardware_concurrency();
 
-    int lowGain = 0;
+    int lowGain = 100;
     int midGain = 100;
     int highGain = 100;
 
@@ -201,6 +201,11 @@ int main()
     startButtonText.setPosition(210, 560);
     startButtonText.setFillColor(sf::Color::White);
 
+    sf::Text modeSelectionArrow("->", font, 20);
+    modeSelectionArrow.setFillColor(sf::Color::Red);
+    modeSelectionArrow.setPosition(170, 130);  // Position near ASM button
+    modeSelectionArrow.setString("");  // Initially empty
+
     while (window.isOpen())
     {
         sf::Event event;
@@ -241,17 +246,17 @@ int main()
 
                 // Adjust gain values
                 if (lowGainPlus.getGlobalBounds().contains(mousePos.x, mousePos.y))
-                    ++lowGain;
+                    lowGain+=10;
                 if (lowGainMinus.getGlobalBounds().contains(mousePos.x, mousePos.y) && lowGain > 0)
-                    --lowGain;
+                    lowGain-=10;
                 if (midGainPlus.getGlobalBounds().contains(mousePos.x, mousePos.y))
-                    ++midGain;
+                    midGain+=10;
                 if (midGainMinus.getGlobalBounds().contains(mousePos.x, mousePos.y) && midGain > 0)
-                    --midGain;
+                    midGain-=10;
                 if (highGainPlus.getGlobalBounds().contains(mousePos.x, mousePos.y))
-                    ++highGain;
+                    highGain+=10;
                 if (highGainMinus.getGlobalBounds().contains(mousePos.x, mousePos.y) && highGain > 0)
-                    --highGain;
+                    highGain-=10;
 
                 lowGainText.setString("Low: " + std::to_string(lowGain));
                 midGainText.setString("Mid: " + std::to_string(midGain));
@@ -262,6 +267,8 @@ int main()
                     selectedProc = MyProc1;
 					outputFilePath = "output_asm.wav";
                     std::cout << "ASM selected for processing." << std::endl;
+                    modeSelectionArrow.setString("->");
+                    modeSelectionArrow.setPosition(170, 130);
                 }
 
                 if (proc2Button.getGlobalBounds().contains(mousePos.x, mousePos.y))
@@ -269,6 +276,8 @@ int main()
                     selectedProc = MyProc2;
 					outputFilePath = "output_cpp.wav";
                     std::cout << "C++ selected for processing." << std::endl;
+                    modeSelectionArrow.setString("->");
+                    modeSelectionArrow.setPosition(170, 200);
                 }
 
                 if (startButton.getGlobalBounds().contains(mousePos.x, mousePos.y) && fileSelected && selectedProc)
@@ -330,17 +339,61 @@ int main()
                     sf_close(outFile);
 
                     std::cout << "Processing complete. Output saved to " << outputFilePath << std::endl;
-
-                    // Display the time taken for processing
                     std::cout << "Time taken for processing: " << duration.count() << " seconds." << std::endl;
+                    sf::RenderWindow timeWindow(sf::VideoMode(400, 200), "Processing Time");
+                    sf::Font font;
+                    std::string fontPath = "C:\\Windows\\Fonts\\arial.ttf";
 
-                    window.close();
+                    if (!font.loadFromFile(fontPath))
+                    {
+                        std::cerr << "Failed to load font for time window" << std::endl;
+                    }
+
+                    sf::Text timeText;
+                    timeText.setFont(font);
+                    timeText.setCharacterSize(24);
+                    timeText.setFillColor(sf::Color::Black);
+
+                    std::ostringstream stream;
+                    stream << std::fixed << std::setprecision(6)
+                        << "Processing Time: " << duration.count() << " seconds\n"
+                        << "Threads: " << numThreads << "\n"
+                        << "Processing Method: "
+                        << (selectedProc == MyProc1 ? "ASM" : "C++");
+
+                    timeText.setString(stream.str());
+
+                    // Center the text
+                    sf::FloatRect textBounds = timeText.getLocalBounds();
+                    timeText.setOrigin(textBounds.left + textBounds.width / 2.0f,
+                        textBounds.top + textBounds.height / 2.0f);
+                    timeText.setPosition(timeWindow.getSize().x / 2.0f,
+                        timeWindow.getSize().y / 2.0f);
+
+                    while (timeWindow.isOpen())
+                    {
+                        sf::Event event;
+                        while (timeWindow.pollEvent(event))
+                        {
+                            if (event.type == sf::Event::Closed)
+                                timeWindow.close();
+                        }
+
+                        timeWindow.clear(sf::Color::White);
+                        timeWindow.draw(timeText);
+                        timeWindow.display();
+                    }
+
+                    //window.close();
                 }
 
             }
         }
 
         window.clear(sf::Color::White);
+
+        if (!modeSelectionArrow.getString().isEmpty())
+            window.draw(modeSelectionArrow);
 
         // Draw all elements
         window.draw(fileButton);
